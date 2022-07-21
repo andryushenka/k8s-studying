@@ -1,0 +1,12 @@
+appVersion: v1
+kind: Service
+metadata:
+  name: redis-cache-svc
+spec:
+  selector:
+    app: redis-cache
+  ports:
+  - name: redis-port
+    protocol: TCP
+    port: 6379
+    targetPort: 6379

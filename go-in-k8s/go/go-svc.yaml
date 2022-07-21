@@ -1,0 +1,14 @@
+appVersion: v1
+kind: Service
+metadata:
+  name: go-app-svc
+  labels:
+    app: go-app-svc
+spec:
+  selector:
+    app: go-app
+  ports:
+  - protocol: TCP
+    name: http
+    port: 8080
+    targetPort: 8080
