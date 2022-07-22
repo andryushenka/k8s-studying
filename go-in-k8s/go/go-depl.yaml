@@ -1,4 +1,4 @@
-appVersion: apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: go-app
@@ -14,45 +14,46 @@ spec:
     spec:
       containers:
       - name: go-app
-        image: goapp_gogetitdone:latest   #local image
-        ports: 8080
-      env:
-      - name: DB_USER
+        image: 19002256/goapp_gogetitdone:latest   
+        ports: 
+        - containerPort: 8080
+        env:
+        - name: DB_USER
           valueFrom:
             secretKeyRef:
               name: app-secret 
               key: db-user
-      - name: DB_PASSWORD
+        - name: DB_PASSWORD
           valueFrom:
             secretKeyRef:
               name: app-secret 
               key: db-password
-      - name: DB_DIALECT
+        - name: DB_DIALECT
           valueFrom:
             secretKeyRef:
               name: app-secret 
               key: db-dialect
-      - name: DB_HOST
+        - name: DB_HOST
           valueFrom:
             secretKeyRef:
               name: app-secret 
               key: db-host   
-      - name: DB_PORT
+        - name: DB_PORT
           valueFrom:
             configMapKeyRef:
               name: app-config 
               key: DB_PORT
-      - name: REDIS_HOST
+        - name: REDIS_HOST
           valueFrom:
             secretKeyRef:
               name: app-secret 
               key: redis-host
-      - name: REDIS_PORT
+        - name: REDIS_PORT
           valueFrom:
             configMapKeyRef:
               name: app-config 
-              key: redis-port
-      - name: REDIS_PASSWORD
+              key: REDIS_PORT
+        - name: REDIS_PASSWORD
           valueFrom:
             secretKeyRef:
               name: app-secret 
