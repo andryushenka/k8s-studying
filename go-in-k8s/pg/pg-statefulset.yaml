@@ -15,7 +15,6 @@ spec:
       labels:
         app: pg
     spec:
-    
       containers:
       - name: pg
         image: postgres:10.4
@@ -38,7 +37,7 @@ spec:
           valueFrom:
             secretKeyRef:
               name: app-secret 
-              key: pg-secrets      
+              key: pg-secrets    
         
         volumeMounts:
         - name: data
